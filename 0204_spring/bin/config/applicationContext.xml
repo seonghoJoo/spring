@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- c: constructor p: property -->	
+	<!--  Idol idol = new Idol(); 개발자가 객체 선언 방식-->
+	<bean id="idol"
+		p:name="아이유"
+		p:height="170"
+		p:weight="40"
+		class="vo.Idol"/>
+	<!--  Idol idol2 = new Idol(); -->
+	<!-- 
+	<bean id="idol2" class="vo.Idol"/>
+	 -->
+	 <bean id="idol2"
+		c:name="진"
+		c:height="180"
+		c:weight="70"
+		class="vo.Idol"/>
+		
+		<!-- IdolPrinter idol을 쓰기때문에 reference를 써야함 -->
+		<bean
+		id="printer"
+		p:idol-ref="idol2"
+		class="util.IdolPrinterCN"/>
+	 
+</beans>
